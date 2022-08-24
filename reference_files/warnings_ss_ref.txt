@@ -1,0 +1,223 @@
+In file included from ss.cpp:7:
+In file included from ss.cpp:7:
+In file included from ss.cpp:749:
+./ss.htp: In static member function ‘static prevariable model_parameters::current_feval()’:
+./ss.htp:975:39: warning: implicitly-declared ‘constexpr prevariable::prevariable(const prevariable&)’ is deprecated [-Wdeprecated-copy]
+  975 |     return *objective_function_value::pobjfun;
+      |                                       ^~~~~~~
+In file included from ss.cpp:7:
+ss.cpp: In member function ‘virtual void model_parameters::between_phases_calculations()’:
+ss.cpp:15087:19: note: synthesized method ‘named_dvariable& named_dvariable::operator=(const named_dvariable&)’ first required here
+15087 |     last_objfun = obj_fun;
+      |                   ^~~~~~~
+ss.cpp: In member function ‘void model_parameters::get_natmort()’:
+ss.cpp:16987:28: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+16987 |                   natM_A = natM_B;
+      |                            ^~~~~~
+ss.cpp: In member function ‘void model_parameters::get_migration2()’:
+ss.cpp:17763:17: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+17763 |         move2 = move1;
+      |                 ^~~~~
+ss.cpp: In member function ‘void model_parameters::get_selectivity()’:
+ss.cpp:18225:83: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18225 |                     t1min = mfexp(-(square(len_bins_m(startbin) - peak) / upselex)); // fxn at first bin
+      |                                                                                   ^
+ss.cpp:18255:78: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18255 |                   t2min = mfexp(-(square(len_bins_m(j2) - peak2) / downselex)); // fxn at last bin
+      |                                                                              ^
+ss.cpp:18351:36: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18351 |                     lastSelPoint = SelPoint;
+      |                                    ^~~~~~~~
+ss.cpp:18359:34: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18359 |                       SelPoint = finalSelPoint;
+      |                                  ^~~~~~~~~~~~~
+ss.cpp:18365:36: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18365 |                     lastSelPoint = SelPoint;
+      |                                    ^~~~~~~~
+ss.cpp:18373:34: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18373 |                       SelPoint = finalSelPoint;
+      |                                  ^~~~~~~~~~~~~
+ss.cpp:18592:83: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18592 |                     t1min = mfexp(-(square(len_bins_m(startbin) - peak) / upselex)); // fxn at first bin
+      |                                                                                   ^
+ss.cpp:18607:78: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18607 |                   t2min = mfexp(-(square(len_bins_m(j2) - peak2) / downselex)); // fxn at last bin
+      |                                                                              ^
+ss.cpp:18621:54: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18621 |                     asc = mfexp(-square(t1) / upselex);
+      |                                                      ^
+ss.cpp:18629:56: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18629 |                     dsc = mfexp(-square(t2) / downselex);
+      |                                                        ^
+ss.cpp:18919:40: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+18919 |                   sigmasel = selparm(a1);
+      |                                        ^
+ss.cpp:19494:65: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+19494 |                     t1min = mfexp(-(square(0. - peak) / upselex)); // fxn at first bin
+      |                                                                 ^
+ss.cpp:19511:77: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+19511 |                   t2min = mfexp(-(square(r_ages(nages) - peak2) / downselex)); // fxn at last bin
+      |                                                                             ^
+ss.cpp:19787:40: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+19787 |                   sigmasel = selparm(a1);
+      |                                        ^
+ss.cpp: In member function ‘void model_parameters::get_time_series()’:
+ss.cpp:21011:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21011 |           R0_use = Recr_virgin;
+      |                    ^~~~~~~~~~~
+ss.cpp:21012:21: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21012 |           SSB_use = SSB_virgin;
+      |                     ^~~~~~~~~~
+ss.cpp:21016:41: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21016 |           R0_use = mfexp(SR_parm_work(1));
+      |                                         ^
+ss.cpp:21030:21: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21030 |           SSB_use = SSB_equil;
+      |                     ^~~~~~~~~
+ss.cpp:21306:66: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21306 |                 crashtemp1 = posfun(crashtemp, 0.000001, CrashPen);
+      |                                                                  ^
+ss.cpp:21339:70: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21339 |                     crashtemp1 = posfun(crashtemp, 0.000001, CrashPen);
+      |                                                                      ^
+ss.cpp:21434:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21434 |           R0_use = Recr_virgin;
+      |                    ^~~~~~~~~~~
+ss.cpp:21435:21: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21435 |           SSB_use = SSB_virgin;
+      |                     ^~~~~~~~~~
+ss.cpp:21439:41: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21439 |           R0_use = mfexp(SR_parm_work(1));
+      |                                         ^
+ss.cpp:21453:21: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+21453 |           SSB_use = SSB_equil;
+      |                     ^~~~~~~~~
+ss.cpp: In member function ‘dvariable model_parameters::Spawn_Recr(const prevariable&, const prevariable&, const prevariable&)’:
+ss.cpp:22279:133: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22279 |         NewRecruits = Join_Fxn(0.0 * SSB_virgin_adj, SSB_virgin_adj, steepness * SSB_virgin_adj, SSB_curr_adj, temp, Recr_virgin_adj);
+      |                                                                                                                                     ^
+ss.cpp:22294:19: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22294 |         SSB_BH1 = SSB_curr_adj;
+      |                   ^~~~~~~~~~~~
+ss.cpp:22309:112: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22309 |       SRZ_surv = mfexp((1. - pow((SSB_curr_adj / SSB_virgin_adj), SR_parm_work(3))) * (srz_min - SRZ_0) + SRZ_0); //  survival
+      |                                                                                                                ^
+ss.cpp: In member function ‘dvar_vector model_parameters::Equil_Spawn_Recr_Fxn(const prevariable&, const prevariable&, const prevariable&, const prevariable&, const prevariable&)’:
+ss.cpp:22489:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22489 |       B_equil = posfun(B_equil, 0.0001, temp);
+      |                                             ^
+ss.cpp:22506:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22506 |       B_equil = posfun(B_equil, 0.0001, temp);
+      |                                             ^
+ss.cpp:22523:188: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22523 |       B_equil = Join_Fxn(0.0 * SSB_virgin / Recr_virgin, SSB_virgin / Recr_virgin, SSB_virgin / Recr_virgin * steepness, SPR_temp, alpha / ((1. / SPR_temp) - beta), SPR_temp * Recr_virgin);
+      |                                                                                                                                                                                            ^
+ss.cpp:22524:124: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22524 |       R_equil = Join_Fxn(0.0 * SSB_virgin, SSB_virgin, SSB_virgin * steepness, B_equil, alpha + beta * B_equil, Recr_virgin);
+      |                                                                                                                            ^
+ss.cpp:22533:95: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22533 |       SRZ_surv = mfexp((1. - pow((B_equil / SSB_virgin), SRparm3)) * (srz_min - SRZ_0) + SRZ_0); //  survival
+      |                                                                                               ^
+ss.cpp:22556:47: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22556 |       Shep_top2 = posfun(Shep_top, 0.001, temp);
+      |                                               ^
+ss.cpp:22568:49: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+22568 |       RkrTop = posfun(RkrTop, 0.000001, CrashPen);
+      |                                                 ^
+ss.cpp: In member function ‘void model_parameters::Get_Benchmarks(int)’:
+ss.cpp:23245:22: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+23245 |     Vbio1_unfished = smrybio; // gets value from equil_calc
+      |                      ^~~~~~~
+ss.cpp:23784:19: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+23784 |       Vbio1_MSY = smrybio;
+      |                   ^~~~~~~
+ss.cpp:23785:18: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+23785 |       Vbio_MSY = totbio;
+      |                  ^~~~~~
+ss.cpp:23917:19: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+23917 |       Vbio1_MSY = smrybio;
+      |                   ^~~~~~~
+ss.cpp:23918:18: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+23918 |       Vbio_MSY = totbio;
+      |                  ^~~~~~
+ss.cpp: In member function ‘void model_parameters::Get_Forecast()’:
+ss.cpp:24908:24: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+24908 |               R0_use = Recr_virgin;
+      |                        ^~~~~~~~~~~
+ss.cpp:24909:25: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+24909 |               SSB_use = SSB_virgin;
+      |                         ^~~~~~~~~~
+ss.cpp:24913:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+24913 |               R0_use = mfexp(SR_parm_work(1));
+      |                                             ^
+ss.cpp:24927:25: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+24927 |               SSB_use = SSB_equil;
+      |                         ^~~~~~~~~
+ss.cpp:25512:24: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+25512 |               R0_use = Recr_virgin;
+      |                        ^~~~~~~~~~~
+ss.cpp:25513:25: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+25513 |               SSB_use = SSB_virgin;
+      |                         ^~~~~~~~~~
+ss.cpp:25517:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+25517 |               R0_use = mfexp(SR_parm_work(1));
+      |                                             ^
+ss.cpp:25531:25: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+25531 |               SSB_use = SSB_equil;
+      |                         ^~~~~~~~~
+ss.cpp: In member function ‘void model_parameters::evaluate_the_objective_function()’:
+ss.cpp:27745:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+27745 |         dev_last = dev;
+      |                    ^~~
+ss.cpp: In member function ‘dvariable model_parameters::Check_Parm(int, const int&, const double&, const double&, const int&, const double&, const double&, const double&, const prevariable&)’:
+ss.cpp:28417:42: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+28417 |           zjitter = inv_cumd_norm(kjitter);
+      |                                          ^
+ss.cpp: In member function ‘void model_parameters::write_bigoutput()’:
+ss.cpp:34546:29: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+34546 |       Shepherd_c = SR_parm(3);
+      |                             ^
+ss.cpp: In member function ‘void model_parameters::SPR_profile()’:
+ss.cpp:37277:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37277 |           Fmult2 = maxpossF;
+      |                    ^~~~~~~~
+ss.cpp:37282:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37282 |           Fmult2 = Fcrash;
+      |                    ^~~~~~
+ss.cpp:37293:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37293 |           Fmult2 = SPR_Fmult;
+      |                    ^~~~~~~~~
+ss.cpp:37299:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37299 |           Fmult2 = Btgt_Fmult;
+      |                    ^~~~~~~~~~
+ss.cpp:37305:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37305 |           Fmult2 = MSY_Fmult;
+      |                    ^~~~~~~~~
+ss.cpp:37311:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37311 |           Fmult2 = Btgt_Fmult2;
+      |                    ^~~~~~~~~~~
+ss.cpp:37317:20: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37317 |           Fmult2 = MSY_Fmult;
+      |                    ^~~~~~~~~
+ss.cpp:37339:22: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37339 |           SPR_last = SPR_trial;
+      |                      ^~~~~~~~~
+ss.cpp:37340:22: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37340 |           YPR_last = YPR_dead;
+      |                      ^~~~~~~~
+ss.cpp:37379:22: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+37379 |             Fcrash = Fmult2;
+      |                      ^~~~~~
+ss.cpp: In member function ‘void model_parameters::make_timevaryparm()’:
+ss.cpp:38000:44: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+38000 |         baseparm = MGparm(timevary_setup(2)); //  index of base parm
+      |                                            ^
+ss.cpp:38017:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+38017 |         baseparm = SR_parm(timevary_setup(2)); //  index of base parm
+      |                                             ^
+ss.cpp:38034:44: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+38034 |         baseparm = Q_parm(timevary_setup(2)); //  index of base parm
+      |                                            ^
+ss.cpp:38051:45: warning: implicitly-declared ‘dvariable& dvariable::operator=(const dvariable&)’ is deprecated [-Wdeprecated-copy]
+38051 |         baseparm = selparm(timevary_setup(2)); //  index of base parm
+      |                                             ^
