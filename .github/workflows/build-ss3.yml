@@ -34,16 +34,35 @@ jobs:
           Expand-Archive -LiteralPath "D:\a\stock-synthesis\stock-synthesis\admb-13.0.zip" -DestinationPath "D:\a\stock-synthesis\stock-synthesis\"
           echo "D:\a\stock-synthesis\stock-synthesis\admb-13.0\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
-      - name: Get admb source, build, and put in path, mac
+      - name: checkout admb, mac
+        if: matrix.config.os == 'macos-latest'
+        uses: actions/checkout@v2
+        with:
+          repository: admb-project/admb
+          path: admb
+          ref: admb-13.0
+      - name: clean, mac
+        if: matrix.config.os == 'macos-latest'
+        run: cd admb && make clean
+      - name: see where admb is, mac
         if: matrix.config.os == 'macos-latest'
         run: |
-          curl https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-src.zip -L -o admb-13.0-src.zip
-          unzip admb-13.0-src.zip -d /usr/local/bin
-          ls /usr/local/bin
-          cd /usr/local/bin/admb-13.0
-          make
-          ls /usr/local/bin/admb-13.0/build/admb/bin
-          echo "/usr/local/bin/admb-13.0/build/admb/bin" >> $GITHUB_PATH
+          ls
+          cd admb && ls
+      - name: compile admb, mac
+        if: matrix.config.os == 'macos-latest'
+        run: |
+          cd admb && make 
+      - name: see where admb is, mac
+        if: matrix.config.os == 'macos-latest'
+        run: |
+          cd admb && ls -l
+      - name: put admb in path, mac
+        if: matrix.config.os == 'macos-latest'
+        run: |
+          sudo mv admb /usr/local/bin
+          sudo chmod 755 /usr/local/bin/admb
+          echo "/usr/local/bin/admb" >> $GITHUB_PATH
 
       - name: Get admb and put in path, linux
         if: matrix.config.os == 'ubuntu-latest'
