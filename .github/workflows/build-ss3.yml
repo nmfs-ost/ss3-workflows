@@ -20,8 +20,10 @@ jobs:
           - {os: windows-latest}
           - {os: macos-latest}
           - {os: ubuntu-latest}
-    # Limit run time to 15 min to avoid wasting action minutes.
-    timeout-minutes: 15
+    # Limit run time to 30 min to avoid wasting action minutes.
+    # was set to 15 minutes previously, but compiling admb on mac took
+    # too long
+    timeout-minutes: 30
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
