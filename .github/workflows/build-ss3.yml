@@ -40,11 +40,11 @@ jobs:
           curl https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-src.zip -L -o admb-13.0-src.zip
           unzip admb-13.0-src.zip -d /usr/local/bin
           ls /usr/local/bin
-          cd /usr/local/bin/admb-13.0-src
+          cd /usr/local/bin/admb-13.0
           make
-          ls /usr/local/bin/admb-13.0-src/build/admb/bin
-          echo "/usr/local/bin/admb-13.0-src/build/admb/bin" >> $GITHUB_PATH
-          
+          ls /usr/local/bin/admb-13.0/build/admb/bin
+          echo "/usr/local/bin/admb-13.0/build/admb/bin" >> $GITHUB_PATH
+
       - name: Get admb and put in path, linux
         if: matrix.config.os == 'ubuntu-latest'
         run: |
