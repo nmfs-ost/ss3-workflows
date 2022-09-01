@@ -19,7 +19,7 @@ jobs:
         config:
           - {os: windows-latest}
           - {os: macos-latest}
-          - {os: ubuntu-latest}
+          - {os: ubuntu-22.04}
     # Limit run time to 90 min to avoid wasting action minutes.
     # was set to 15 and then 30 minutes previously, but compiling admb
     # on mac took too long
@@ -67,7 +67,7 @@ jobs:
           echo "/usr/local/bin/admb" >> $GITHUB_PATH
 
       - name: Get admb and put in path, linux
-        if: matrix.config.os == 'ubuntu-latest'
+        if: matrix.config.os == 'ubuntu-22.04'
         run: |
           wget https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-linux.zip
           sudo unzip admb-13.0-linux.zip -d /usr/local/bin
@@ -107,7 +107,7 @@ jobs:
 
       - name: Get the last tag on unix
         id: get-latest-tag-unix
-        if: matrix.config.os == 'macos-latest' || matrix.config.os == 'ubuntu-latest'
+        if: matrix.config.os == 'macos-latest' || matrix.config.os == 'ubuntu-22.04'
         run: |
           git tag
           latest_tag=$(git describe --abbrev=0 --tags)
@@ -121,7 +121,7 @@ jobs:
 
       - name: pull the last tag value to use in the Rscript on unix
         id: get-version-unix
-        if: matrix.config.os == 'macos-latest' || matrix.config.os == 'ubuntu-latest'
+        if: matrix.config.os == 'macos-latest' || matrix.config.os == 'ubuntu-22.04'
         run: |
           echo "${{ steps.get-latest-tag-unix.outputs.tag }}" > .github/last_tag.txt
           echo "${{ steps.get-latest-tag-unix.outputs.tag_commit }}" > .github/last_tag_commit.txt
@@ -217,7 +217,7 @@ jobs:
           /bin/bash ./Make_SS_330_new.sh -b SS330 -o
           
       - name: Build stock synthesis for linux with p flag
-        if:  matrix.config.os == 'ubuntu-latest'
+        if:  matrix.config.os == 'ubuntu-22.04'
         run: |
           rm -rf SS330
           rm -rf ss_osx.tar
@@ -240,13 +240,13 @@ jobs:
           mv ss_opt ss_opt_osx
           
       - name: Verify binary on linux
-        if: matrix.config.os == 'ubuntu-latest'
+        if: matrix.config.os == 'ubuntu-22.04'
         run: |
           sha256sum SS330/ss
           sha256sum SS330/ss_opt
     
       - name: Delete unneeded files and change exe names on linux
-        if: matrix.config.os == 'ubuntu-latest'
+        if: matrix.config.os == 'ubuntu-22.04'
         run: |
           cd SS330
           rm *.obj *.htp *.cpp ss_opt.tpl ss.tpl
