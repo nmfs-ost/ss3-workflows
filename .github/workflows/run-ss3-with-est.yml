@@ -1,11 +1,11 @@
-# run fast running SS models with estimation (using Windows only)
+# run fast running SS models with estimation
 name: run-with-est
 on:
   workflow_call:
 
 jobs:
   run-with-est:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
@@ -26,23 +26,24 @@ jobs:
 
       - name: Get admb and put in path
         run: |
-          Invoke-WebRequest -Uri https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-windows.zip -OutFile "D:\a\stock-synthesis\stock-synthesis\admb-13.0.zip"
-          Expand-Archive -LiteralPath "D:\a\stock-synthesis\stock-synthesis\admb-13.0.zip" -DestinationPath "D:\a\stock-synthesis\stock-synthesis\"
-          echo "D:\a\stock-synthesis\stock-synthesis\admb-13.0\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          wget https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-linux.zip
+          sudo unzip admb-13.0-linux.zip -d /usr/local/bin
+          sudo chmod 755 /usr/local/bin/admb-13.0/bin/admb
+          echo "/usr/local/bin/admb-13.0/bin" >> $GITHUB_PATH
 
-      - name: Build stock synthesis for windows
+      - name: Build stock synthesis
         run: |
-          cd Compile
-          ./Make_SS_safe.bat
-          ./Make_SS_fast.bat
+          rm -rf SS330
+          mkdir SS330
+          /bin/bash ./Make_SS_330_new.sh -b SS330
 
       - name: move exes, scripts to needed locations
         run: |
-          mv test-models-repo\models test-models-repo\model_runs
-          mv Compile/ss.exe test-models-repo\model_runs\ss.exe
+          mv test-models-repo/models test-models-repo/model_runs
+          mv SS330/ss test-models-repo/model_runs/ss
 
-      #- name: change permissions on ss exes
-      #  run: chmod a+x test-models-repo/model_runs/ss
+      - name: change permissions on ss exes
+        run: chmod a+x test-models-repo/model_runs/ss
 
       - name: run models
         run: |
