@@ -19,12 +19,29 @@ jobs:
       - name: setup R
         uses: r-lib/actions/setup-r@master
 
-      - name: Get admb and put in path
+      - name: checkout admb, linux
+        uses: actions/checkout@v2
+        with:
+          repository: admb-project/admb
+          path: admb
+          ref: admb-13.0
+      - name: clean, linux
+        run: cd admb && make clean
+      - name: see where admb is, linux
         run: |
-          wget https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-linux.zip
-          sudo unzip admb-13.0-linux.zip -d /usr/local/bin
-          sudo chmod 755 /usr/local/bin/admb-13.0/bin/admb
-          echo "/usr/local/bin/admb-13.0/bin" >> $GITHUB_PATH
+          ls
+          cd admb && ls
+      - name: compile admb, linux
+        run: |
+          cd admb && make 
+      - name: see where admb is, linux
+        run: |
+          cd admb && ls -l
+      - name: put admb in path, linux
+        run: |
+          sudo mv admb /usr/local/bin
+          sudo chmod 755 /usr/local/bin/admb
+          echo "/usr/local/bin/admb" >> $GITHUB_PATH
 
       - name: Build stock synthesis with warnings
         run: |
