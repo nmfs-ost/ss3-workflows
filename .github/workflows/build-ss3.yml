@@ -66,36 +66,13 @@ jobs:
           sudo chmod 755 /usr/local/bin/admb
           echo "/usr/local/bin/admb" >> $GITHUB_PATH
 
-      - name: checkout admb, linux
-        if: matrix.config.os == 'ubuntu-latest'
-        uses: actions/checkout@v2
-        with:
-          repository: admb-project/admb
-          path: admb
-          ref: admb-13.0
-      - name: clean, linux
-        if: matrix.config.os == 'ubuntu-latest'
-        run: cd admb && make clean
-      - name: see where admb is, linux
+      - name: Get admb and put in path, linux
         if: matrix.config.os == 'ubuntu-latest'
         run: |
-          ls
-          cd admb && ls
-      - name: compile admb, linux
-        if: matrix.config.os == 'ubuntu-latest'
-        run: |
-          cd admb && make 
-      - name: see where admb is, linux
-        if: matrix.config.os == 'ubuntu-latest'
-        run: |
-          cd admb && ls -l
-      - name: put admb in path, linux
-        if: matrix.config.os == 'ubuntu-latest'
-        run: |
-          sudo mv admb /usr/local/bin
-          sudo chmod 755 /usr/local/bin/admb
-          echo "/usr/local/bin/admb" >> $GITHUB_PATH
-
+          wget https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-linux.zip
+          sudo unzip admb-13.0-linux.zip -d /usr/local/bin
+          sudo chmod 755 /usr/local/bin/admb-13.0/bin/admb
+          echo "/usr/local/bin/admb-13.0/bin" >> $GITHUB_PATH
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
