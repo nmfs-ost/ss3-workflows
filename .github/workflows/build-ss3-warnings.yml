@@ -28,12 +28,10 @@ jobs:
 
       - name: Build stock synthesis with warnings
         run: |
-          echo "pwd:"; pwd
-          echo "ls -la:"; ls -la
-          echo "mkdir SS330:"; mkdir SS330
-          echo "ls -la:"; ls -la
-          echo "/bin/bash ./Make_SS_330_new.sh -b SS330 -w &> warnings.txt:"
-          /bin/bash ./Make_SS_330_new.sh -b SS330 -w &> warnings.txt
+          rm -rf SS330
+          rm -rf ss_osx.tar
+          mkdir SS330
+          /bin/bash ./Make_SS_330_new.sh -a /usr/local/bin/admb-13.0 -b SS330 -w &> warnings.txt
 
       # Runs a set of commands using the runners shell
       - name: Use R to parse warnings output
