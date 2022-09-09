@@ -20,13 +20,12 @@ jobs:
         uses: r-lib/actions/setup-r@master
 
       - name: Get admb and put in path, linux
-        if: matrix.config.os == 'ubuntu-latest'
         run: |
           wget https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-linux.zip
           sudo unzip admb-13.0-linux.zip -d /usr/local/bin
           sudo chmod 755 /usr/local/bin/admb-13.0/bin/admb
           echo "/usr/local/bin/admb-13.0/bin" >> $GITHUB_PATH
-          
+
       - name: Build stock synthesis with warnings
         run: |
           echo "pwd:"; pwd
