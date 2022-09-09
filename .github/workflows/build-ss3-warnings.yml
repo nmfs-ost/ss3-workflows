@@ -43,11 +43,11 @@ jobs:
 
       - name: put admb in path, linux
         run: |
-          echo "pwd:"; pwd
-          echo "sudo chmod 755 admb/build/admb:"; sudo chmod 755 admb/build/admb
-          echo "ls -la: admb/build/admb "; ls -la admb/build/admb 
-          echo "/home/runner/work/stock-synthesis/stock-synthesis/admb/build/admb" >> $GITHUB_PATH
-          echo "echo \$GITHUB_PATH:"; echo $GITHUB_PATH
+          sudo mv admb /usr/local/bin
+          sudo chmod 755 /usr/local/bin/admb
+          echo "/usr/local/bin/admb" >> $GITHUB_PATH
+          echo "echo \$GITHUB_PATH"
+          echo $GITHUB_PATH
           echo "which admb"; which admb
 
       - name: Build stock synthesis with warnings
