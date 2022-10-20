@@ -12,6 +12,12 @@ name: Update SS3 version in R package
 
 on:
   workflow_call:
+    inputs:
+      exe-prefix:
+        description: 'Prefix for the name of the executable'
+        required: false
+        type: string
+        default: 'ss'
 
 jobs:
   update-ss3-version:
@@ -47,17 +53,17 @@ jobs:
 
       - name: Move exes to the right location
         run: |
-          mv ss_linux inst/bin/Linux64/ss
-          mv ss_win.exe inst/bin/Windows64/ss.exe
-          mv ss_osx inst/bin/MacOS/ss
+          mv ss_linux inst/bin/Linux64/${{ inputs.exe-prefix }}
+          mv ss_win.exe inst/bin/Windows64/${{ inputs.exe-prefix }}.exe
+          mv ss_osx inst/bin/MacOS/${{ inputs.exe-prefix }}
           rm ss_opt_osx
           rm ss_opt_linux
           rm ss_opt_win.exe
 
       - name: Change permissions for mac and linux exes
         run: |
-          chmod a+x inst/bin/Linux64/ss
-          chmod a+x inst/bin/MacOS/ss
+          chmod a+x inst/bin/Linux64/${{ inputs.exe-prefix }}
+          chmod a+x inst/bin/MacOS/${{ inputs.exe-prefix }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
