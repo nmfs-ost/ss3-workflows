@@ -103,8 +103,8 @@ jobs:
         if: matrix.config.os == 'windows-latest'
         run: |
           echo "${{ steps.get-latest-tag-win.outputs.tag }}" > .github/last_tag.txt
-          Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag_commit }} -FilePath .github/last_tag_commit.txt
-          Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.commit}} -FilePath .github/last_commit.txt
+          echo "${{ steps.get-latest-tag-win.outputs.tag_commit }}" > .github/last_tag_commit.txt
+          echo "${{ steps.get-latest-tag-win.outputs.commit }}" > .github/last_commit.txt
         #  Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag }} -FilePath .github/last_tag.txt
 
       - name: Get the last tag on unix
