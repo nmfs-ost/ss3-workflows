@@ -35,7 +35,7 @@ jobs:
           Invoke-WebRequest -Uri https://github.com/admb-project/admb/releases/download/admb-13.0/admb-13.0-windows.zip -OutFile "D:\a\stock-synthesis\stock-synthesis\admb-13.0.zip"
           Expand-Archive -LiteralPath "D:\a\stock-synthesis\stock-synthesis\admb-13.0.zip" -DestinationPath "D:\a\stock-synthesis\stock-synthesis\"
           echo "D:\a\stock-synthesis\stock-synthesis\admb-13.0\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      
+
       - name: checkout admb, mac
         if: matrix.config.os == 'macos-latest'
         uses: actions/checkout@v3
@@ -104,7 +104,7 @@ jobs:
           Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag }} -FilePath .github/last_tag.txt
           Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag_commit }} -FilePath .github/last_tag_commit.txt
           Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.commit}} -FilePath .github/last_commit.txt
-  
+
       - name: Get the last tag on unix
         id: get-latest-tag-unix
         if: matrix.config.os == 'macos-latest' || matrix.config.os == 'ubuntu-latest'
