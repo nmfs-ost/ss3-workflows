@@ -101,7 +101,7 @@ jobs:
         id: get-version-win
         if: matrix.config.os == 'windows-latest'
         run: |
-          Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag }} -FilePath .github/last_tag.txt
+          echo ${{ steps.get-latest-tag-win.outputs.tag }} > .github/last_tag.txt
           Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.tag_commit }} -FilePath .github/last_tag_commit.txt
           Out-File -InputObject ${{ steps.get-latest-tag-win.outputs.commit}} -FilePath .github/last_commit.txt
 
