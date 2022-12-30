@@ -28,6 +28,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: clean
+        run: |
+          set PATH=C:\PortableGit\bin;C:\rtools35\mingw_64\bin;%PATH%
+          utilities\make clean SHELL=
+        shell: cmd
+        
+      - name: build
+        run: |
+          set PATH=C:\PortableGit\bin;C:\rtools35\mingw_64\bin;%PATH%
+          utilities\make -j 4 SHELL=
+          utilities\make -j 4 shared SHELL=
+          shell: cmd
 
       - name: Get admb and put in path, windows
         if: matrix.config.os == 'windows-latest'
