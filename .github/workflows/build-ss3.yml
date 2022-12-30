@@ -41,7 +41,7 @@ jobs:
           set PATH=C:\PortableGit\bin;C:\rtools35\mingw_64\bin;%PATH%
           utilities\make -j 4 SHELL=
           utilities\make -j 4 shared SHELL=
-          shell: cmd
+        shell: cmd
 
       - name: Get admb and put in path, windows
         if: matrix.config.os == 'windows-latest'
