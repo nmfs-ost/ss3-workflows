@@ -194,6 +194,7 @@ jobs:
       - name: Build stock synthesis for windows
         if: matrix.config.os == 'windows-latest'
         run: |
+          g++ -v
           cd Compile
           ./Make_SS_safe.bat
           ./Make_SS_fast.bat
