@@ -79,7 +79,7 @@ jobs:
         with:
           r-version: 'release'
           rtools-version: '35'
-          windows-path-include-mingw: true
+          windows-path-include-mingw: false
           update-rtools: true
       - name: Fetch tags
         run: |
