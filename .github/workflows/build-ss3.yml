@@ -29,6 +29,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Set up MinGW for Windows
+        if: matrix.config.os == 'windows-latest'
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x64
+
       - name: Get admb and put in path, windows
         if: matrix.config.os == 'windows-latest'
         run: |
@@ -192,9 +198,16 @@ jobs:
           writeLines(ver_info, "SS_versioninfo_330opt.tpl")
         shell: Rscript {0}
 
+      - name: get info on gcc version and path
+        if: matrix.config.os == 'windows-latest'
+        run: |
+          g++ -v
+          echo $env:GITHUB_PATH
+          
       - name: Build stock synthesis for windows
         if: matrix.config.os == 'windows-latest'
         run: |
+          
           cd Compile
           ./Make_SS_safe.bat
           ./Make_SS_fast.bat
