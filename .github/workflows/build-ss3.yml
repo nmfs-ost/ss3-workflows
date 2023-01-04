@@ -29,6 +29,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          rtools-version: '40'
+          windows-path-include-rtools: true
+      #    windows-path-include-mingw: true
+
       - name: Get admb and put in path, windows
         if: matrix.config.os == 'windows-latest'
         run: |
@@ -74,25 +82,11 @@ jobs:
           sudo chmod 755 /usr/local/bin/admb-13.1/bin/admb
           echo "/usr/local/bin/admb-13.1/bin" >> $GITHUB_PATH
 
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: 'release'
-          rtools-version: '35'
-          windows-path-include-mingw: false
-          update-rtools: true
       - name: Fetch tags
         run: |
           git fetch --tags
           git fetch --prune --unshallow || true
 
-      # this step added to change gcc version from 10 to 12
-      # https://github.com/admb-project/admb/issues/282
-      #- name: Set up MinGW for Windows
-      #  if: matrix.config.os == 'windows-latest'
-      #  uses: egor-tensin/setup-mingw@v2
-      #  with:
-      #    platform: x64
 
       - name: Get the last tag on windows
         id: get-latest-tag-win
