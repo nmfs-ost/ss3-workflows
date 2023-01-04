@@ -29,7 +29,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # "pacman -Syuu" is intended to update the compiler to gcc version 12
+      - name: Set up MinGW for Windows
+        if: matrix.config.os == 'windows-latest'
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x64
+
       - name: Get admb and put in path, windows
         if: matrix.config.os == 'windows-latest'
         run: |
