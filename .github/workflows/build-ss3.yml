@@ -87,11 +87,11 @@ jobs:
 
       # this step added to change gcc version from 10 to 12
       # https://github.com/admb-project/admb/issues/282
-      - name: Set up MinGW for Windows
-        if: matrix.config.os == 'windows-latest'
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
+      #- name: Set up MinGW for Windows
+      #  if: matrix.config.os == 'windows-latest'
+      #  uses: egor-tensin/setup-mingw@v2
+      #  with:
+      #    platform: x64
 
       - name: Get the last tag on windows
         id: get-latest-tag-win
