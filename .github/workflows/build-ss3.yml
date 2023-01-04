@@ -197,10 +197,16 @@ jobs:
           writeLines(ver_info, "SS_versioninfo_330opt.tpl")
         shell: Rscript {0}
 
-      - name: Build stock synthesis for windows
+      - name: get info on gcc version and path
         if: matrix.config.os == 'windows-latest'
         run: |
           g++ -v
+          echo $env:GITHUB_PATH
+          
+      - name: Build stock synthesis for windows
+        if: matrix.config.os == 'windows-latest'
+        run: |
+          
           cd Compile
           ./Make_SS_safe.bat
           ./Make_SS_fast.bat
