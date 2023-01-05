@@ -29,11 +29,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Set up MinGW on windows
+      - name: Run pacman command to update gcc packages
         if: matrix.config.os == 'windows-latest'
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
+        run: |
+          pacman -Syuu
 
       - name: get info on gcc version and path
         if: matrix.config.os == 'windows-latest'
