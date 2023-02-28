@@ -50,19 +50,19 @@ jobs:
       - name: clean, mac
         if: matrix.config.os == 'macos-latest'
         run: cd admb && make clean
-      - name: see where admb is, mac
-        if: matrix.config.os == 'macos-latest'
-        run: |
-          ls
-          cd admb && ls
+      # - name: debugging. see where admb is, mac
+      #   if: matrix.config.os == 'macos-latest'
+      #   run: |
+      #     ls
+      #     cd admb && ls
       - name: compile admb, mac
         if: matrix.config.os == 'macos-latest'
         run: |
           cd admb && make 
-      - name: see where admb is, mac
-        if: matrix.config.os == 'macos-latest'
-        run: |
-          cd admb && ls -l
+      # - name: debugging. see where admb is, mac
+      #   if: matrix.config.os == 'macos-latest'
+      #   run: |
+      #     cd admb && ls -l
       - name: put admb in path, mac
         if: matrix.config.os == 'macos-latest'
         run: |
