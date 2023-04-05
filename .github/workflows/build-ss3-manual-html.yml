@@ -14,6 +14,9 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+    outputs:
+      output1: ${{ steps.html_output.outputs.html }}
+
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
@@ -143,3 +146,7 @@ jobs:
         with:
           name: SS330_User_Manual.html
           path: SS330_User_Manual.html
+      
+      - name: create output to use
+        id: html_output
+        run: echo "SS330_User_Manual.html" >> GITHUB_OUTPUT
