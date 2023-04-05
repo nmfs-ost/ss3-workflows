@@ -149,4 +149,4 @@ jobs:
       
       - name: create output to use
         id: html_output
-        run: echo "SS330_User_Manual.html" >> GITHUB_OUTPUT
+        run: echo "SS330_User_Manual.html" >> $GITHUB_OUTPUT
