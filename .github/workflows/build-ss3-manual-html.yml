@@ -146,7 +146,4 @@ jobs:
         with:
           name: SS330_User_Manual.html
           path: SS330_User_Manual.html
-      
-      - name: create output to use
-        id: html_output
-        run: echo "SS330_User_Manual.html" >> $GITHUB_OUTPUT
+          
