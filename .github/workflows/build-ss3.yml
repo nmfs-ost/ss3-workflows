@@ -41,9 +41,11 @@ jobs:
           path: admb
           ref: admb-13.1
        
-      - name: make admb windows
+      - name: get microsoft visual c++
         if: matrix.config.os == 'windows-latest'
         uses: ilammy/msvc-dev-cmd@v1
+      - name: make admb windows
+        if: matrix.config.os == 'windows-latest'
         run: |
           cd admb 
           nmake
