@@ -44,7 +44,7 @@ jobs:
       - name: move admb and put in path windows
         if: matrix.config.os == 'windows-latest'
         run: |
-          echo "D:\a\github-actions-test\github-actions-test\admb\build\admb\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          echo "D:\a\stock-synthesis\stock-synthesis\admb\build\admb\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       # - name: Get admb and put in path, windows
       #   if: matrix.config.os == 'windows-latest'
       #   run: |
