@@ -46,16 +46,13 @@ jobs:
           path: admb
           ref: admb-13.1
       
-      - name: clean windows
+      - name: make admb and put in path windows
         if: matrix.config.os == 'windows-latest'
         run: |
-          cd admb && mingw32-make clean
-          dir
-          cd admb && dir
-          cd admb && mingw32-make
-          cd admb && dir /Q /L
+          cd admb
+          nmake
           move admb C:\Program Files\admb
-          echo "C:\Program Files\admb" >> %GITHUB_PATH%
+          echo "C:\Program Files\admb" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
 #      - name: Get admb and put in path, windows
 #        if: matrix.config.os == 'windows-latest'
